@@ -1,0 +1,744 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/output.css" rel="stylesheet">
+		<!--Fontawesome-->
+	   <link rel="stylesheet" type="text/css" href="css/all.css"/>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    </head>
+    <body>
+	    <!--- === md,sm and phone device open === -->
+		<section class="bg-white p-4 block lg:hidden border-b">
+		   <div class="container mx-auto">
+		     <div class="flex item-center justify-between">
+			   <a href="#">
+				<img src="images/logo.png" class="md:h-[40px] h-[25px]">
+			   </a>
+			   <!-- === search and login === -->
+			   <div class="flex items-center">
+			     <!-- === search === -->
+				 <a href="#" class="border-r-[1px] p-2.5 ">
+				  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 text-gray-500">
+					  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
+				  </svg>
+				</a>
+				<!-- === login === -->
+				<a href="#" class="p-2.5 hover:text-blue-600 flex items-center text-gray-500">
+				  <i class="fa-solid fa-user mx-1.5"></i>
+				  <span class="font-medium text-base ms-1">Login</span>
+				</a>
+			   </div>
+			 </div>
+		   </div>
+		</section>
+        <!-- === header === -->
+        <nav class="lg:static sticky top-0 z-40 border-b-[1px]">
+            <div x-data="{ open: false }" @keydown.window.escape="open = false" class="bg-white">
+                 <div class="lg:py-8 lg:px-8 bg-white">
+                     <div class="flex items-start">
+                       <!-- Logo -->
+                       <div class="hidden lg:block">
+                         <a href="#">
+                           <span class="sr-only">Your Company</span>
+                           <img src="images/logo.png" class="h-[64px] w-[250px] -mt-[14px]" alt="Company-Logo">
+                         </a>
+                       </div>
+                       <!-- ===  === -->
+                       <div class="flex items-center w-full justify-end lg:justify-between">
+						  <div></div>	
+						  <div class="w-11/12 hidden lg:block">
+						    <div class="flex" x-data="{ banar_news: [
+							{ image:'h-1.jpg', title:'শেখ হাসিনার বিদ্বেষমূলক বক্তব্য প্রচারে নিষেধাজ্ঞা দিয়েছেন আন্তর্জাতিক অপরাধ ট্রাইব্যুনাল...' },
+							{ image:'h-1.jpg', title:'শেখ হাসিনার বিদ্বেষমূলক বক্তব্য প্রচারে নিষেধাজ্ঞা দিয়েছেন আন্তর্জাতিক অপরাধ ট্রাইব্যুনাল...' },
+							{ image:'h-1.jpg', title:'শেখ হাসিনার বিদ্বেষমূলক বক্তব্য প্রচারে নিষেধাজ্ঞা দিয়েছেন আন্তর্জাতিক অপরাধ ট্রাইব্যুনাল...' },
+							]}">
+								<!-- === banar news-1 === -->
+								<template x-for="item in banar_news">
+									<div class="flex px-2 lg:px-4 border-r-[1px] border-gray-300 last:border-none">
+									  <img :src="'images/'+item.image" class="w-[64px] h-[64px]">
+									  <div class="ms-2">
+										<a href="#" class="hover:text-blue-600 flex items-start">
+										  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-red-600 me-1 size-10 -mt-[10px]">
+											  <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+											  <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+										  </svg>
+										  <h6 x-html="item.title" class="text-sm font-medium leading-[22px]"></h6>
+										</a>
+									  </div>
+									</div>
+								</template>
+							</div>
+						  </div>
+                       </div>
+                     </div>
+                 </div>
+				 <!-- === phone view(Open menu) === -->
+				 <div class="flex justify-end block lg:hidden bg-white border-b-[1.5px]">
+				     <ul class="px-1.5 flex items-center gap-x-1.5 md:gap-x-6">
+						<li>
+						  <a href="#" class="font-semibold hover:text-blue-600 text-[12px]">সর্বশেষ</a>	
+						</li>
+						<li>
+						  <a href="#" class="font-semibold hover:text-blue-600 text-[12px]">রাজনীতি</a>	
+						</li>
+						<li>
+						  <a href="#" class="font-semibold hover:text-blue-600 text-[12px]">বাংলাদেশ</a>	
+						</li>
+						<li>
+						  <a href="#" class="font-semibold hover:text-blue-600 text-[12px]">অপরাধ</a>	
+						</li>
+						<li>
+						  <a href="#" class="font-semibold hover:text-blue-600 text-[12px]">খেলা</a>	
+						</li>
+						<li>
+						  <a href="#" class="font-semibold hover:text-blue-600 text-[12px]">মতামত</a>	
+						</li>
+					  </ul>
+				     <!-- === language === -->
+					 <a href="#" class="border-x-[1px] p-3 hover:text-blue-600 flex items-center bg-[#fbe9e7]">
+						  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+							  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"></path>
+						  </svg>
+						  <span class="font-medium text-sm ms-1">Eng</span>
+					 </a>
+					 <button type="button" x-description="Mobile menu toggle, controls the 'mobileMenuOpen' state." class="relative rounded-md px-1.5" @click="open = true">
+					 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+						 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+					 </svg>
+				   </button>
+				</div>
+                 <!-- Mobile menu -->
+                 <div x-show="open" class="relative z-40 lg:hidden" x-description="Off-canvas menu for mobile, show/hide based on off-canvas menu state." x-ref="dialog" aria-modal="true" style="display: none;">
+                   <div x-show="open" x-transition:enter="transition-opacity ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-description="Off-canvas menu backdrop, show/hide based on off-canvas menu state." class="fixed inset-0 bg-black bg-opacity-25" style="display: none;"></div>
+                   <div class="fixed inset-0 z-40 flex">
+                     
+                       <div x-show="open" x-transition:enter="transition ease-in-out duration-300 transform" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in-out duration-300 transform" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" x-description="Off-canvas menu, show/hide based on off-canvas menu state." class="relative flex w-full flex-col overflow-y-auto bg-white pb-12 shadow-xl" @click.away="open = false" style="display: none;">
+                         <div class="flex justify-between px-4 pb-2 pt-2 bg-gray-50">
+                           <!-- == logo == -->
+						   <a href="#"><img src="images/logo.png" class="h-[40px] w-[110px]" alt="Company-Logo"></a>
+						   <button type="button" class="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400" @click="open = false">
+                             <span class="absolute -inset-0.5"></span>
+                             <span class="sr-only">Close menu</span>
+                             <svg class="h-6 w-6 text-slate-800" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                              </svg>
+                           </button>
+                         </div>
+                         <!-- === md,sm,phone view contact === -->	
+                         <div class="px-2">
+                            <ul class="flex mt-6" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+								<template x-for="item in modal_manu">
+								  <li class="border-b">
+									<a href="" x-text="item" class="font-medium sm:font-bold ms-1.5 sm:ms-2.5 text-xs sm:text-base hover:text-blue-600"></a>
+								  </li>
+								</template>
+							</ul> 
+							<!-- === === -->
+							<div x-data="{open : false}" class="space-y-2.5 mt-6">
+								<!-- === bangladesh === -->
+								<div>
+								  <div @click="open != 'bang' ? open = 'bang' : open = false" class="cursor-pointer flex items-center justify-between border-b mb-3">
+									<span class="font-semibold text-md">বাংলাদেশ</span>
+									<i class="fas fa-angle-down duration-300" :class="open == 'bang' ? 'transform rotate-180 text-blue-600' : ''"></i>
+								  </div>
+								  <!-- === accordion contant === -->
+								  <div x-show="open == 'bang'" class="p-2" x-collapse>
+									<ul class="" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+										<template x-for="item in modal_manu">
+										  <li class="border-b last:border-0 p-2">
+											<a href="" x-text="item" class="font-medium text-sm hover:text-blue-600"></a>
+										  </li>
+										</template>
+									</ul>
+								  </div>
+								</div>
+								<!-- === বিশ্ব === -->
+								<div>
+								  <div @click="open != 'বিশ্ব' ? open = 'বিশ্ব' : open = false" class="cursor-pointer flex items-center justify-between border-b mb-3">
+									<span class="font-semibold text-md">বিশ্ব</span>
+									<i class="fas fa-angle-down duration-300" :class="open == 'বিশ্ব' ? 'transform rotate-180 text-blue-600' : ''"></i>
+								  </div>
+								  <!-- === accordion contant === -->
+								  <div x-show="open == 'বিশ্ব'" class="p-2" x-collapse>
+									<ul class="" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+										<template x-for="item in modal_manu">
+										  <li class="border-b last:border-0 p-2">
+											<a href="" x-text="item" class="font-medium text-sm hover:text-blue-600"></a>
+										  </li>
+										</template>
+									</ul>
+								  </div>
+								</div>
+								<!-- === মতামত === -->
+								<div>
+								  <div @click="open != 'মতামত' ? open = 'মতামত' : open = false" class="cursor-pointer flex items-center justify-between border-b mb-3">
+									<span class="font-semibold text-md">মতামত</span>
+									<i class="fas fa-angle-down duration-300" :class="open == 'মতামত' ? 'transform rotate-180 text-blue-600' : ''"></i>
+								  </div>
+								  <!-- === accordion contant === -->
+								  <div x-show="open == 'মতামত'" class="p-2" x-collapse>
+									<ul class="" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+										<template x-for="item in modal_manu">
+										  <li class="border-b last:border-0 p-2">
+											<a href="" x-text="item" class="font-medium text-sm hover:text-blue-600"></a>
+										  </li>
+										</template>
+									</ul>
+								  </div>
+								</div>
+								<!-- === বাণিজ্য === -->
+								<div>
+								  <div @click="open != 'বাণিজ্য' ? open = 'বাণিজ্য' : open = false" class="cursor-pointer flex items-center justify-between border-b mb-3">
+									<span class="font-semibold text-md">বাণিজ্য</span>
+									<i class="fas fa-angle-down duration-300" :class="open == 'বাণিজ্য' ? 'transform rotate-180 text-blue-600' : ''"></i>
+								  </div>
+								  <!-- === accordion contant === -->
+								  <div x-show="open == 'বাণিজ্য'" class="p-2" x-collapse>
+									<ul class="" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+										<template x-for="item in modal_manu">
+										  <li class="border-b last:border-0 p-2">
+											<a href="" x-text="item" class="font-medium text-sm hover:text-blue-600"></a>
+										  </li>
+										</template>
+									</ul>
+								  </div>
+								</div>
+								<!-- === বিনোদন === -->
+								<div>
+								  <div @click="open != 'বিনোদন' ? open = 'বিনোদন' : open = false" class="cursor-pointer flex items-center justify-between border-b mb-3">
+									<span class="font-semibold text-md">বিনোদন</span>
+									<i class="fas fa-angle-down duration-300" :class="open == 'বিনোদন' ? 'transform rotate-180 text-blue-600' : ''"></i>
+								  </div>
+								  <!-- === accordion contant === -->
+								  <div x-show="open == 'বিনোদন'" class="p-2" x-collapse>
+									<ul class="" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+										<template x-for="item in modal_manu">
+										  <li class="border-b last:border-0 p-2">
+											<a href="" x-text="item" class="font-medium text-sm hover:text-blue-600"></a>
+										  </li>
+										</template>
+									</ul>
+								  </div>
+								</div>
+								<!-- === জীবনযাপন === -->
+								<div>
+								  <div @click="open != 'জীবনযাপন' ? open = 'জীবনযাপন' : open = false" class="cursor-pointer flex items-center justify-between border-b mb-3">
+									<span class="font-semibold text-md">জীবনযাপন</span>
+									<i class="fas fa-angle-down duration-300" :class="open == 'জীবনযাপন' ? 'transform rotate-180 text-blue-600' : ''"></i>
+								  </div>
+								  <!-- === accordion contant === -->
+								  <div x-show="open == 'জীবনযাপন'" class="p-2" x-collapse>
+									<ul class="" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+										<template x-for="item in modal_manu">
+										  <li class="border-b last:border-0 p-2">
+											<a href="" x-text="item" class="font-medium text-sm hover:text-blue-600"></a>
+										  </li>
+										</template>
+									</ul>
+								  </div>
+								</div>
+								<!-- === চাকরি === -->
+								<div>
+								  <div @click="open != 'চাকরি' ? open = 'চাকরি' : open = false" class="cursor-pointer flex items-center justify-between border-b mb-3">
+									<span class="font-semibold text-md">চাকরি</span>
+									<i class="fas fa-angle-down duration-300" :class="open == 'চাকরি' ? 'transform rotate-180 text-blue-600' : ''"></i>
+								  </div>
+								  <!-- === accordion contant === -->
+								  <div x-show="open == 'চাকরি'" class="p-2" x-collapse>
+									<ul class="" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+										<template x-for="item in modal_manu">
+										  <li class="border-b last:border-0 p-2">
+											<a href="" x-text="item" class="font-medium text-sm hover:text-blue-600"></a>
+										  </li>
+										</template>
+									</ul>
+								  </div>
+								</div>
+								<!-- === খেলা === -->
+								<div>
+								  <div @click="open != 'খেলা' ? open = 'খেলা' : open = false" class="cursor-pointer flex items-center justify-between border-b mb-3">
+									<span class="font-semibold text-md">খেলা</span>
+									<i class="fas fa-angle-down duration-300" :class="open == 'খেলা' ? 'transform rotate-180 text-blue-600' : ''"></i>
+								  </div>
+								  <!-- === accordion contant === -->
+								  <div x-show="open == 'খেলা'" class="p-2" x-collapse>
+									<ul class="" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+										<template x-for="item in modal_manu">
+										  <li class="border-b last:border-0 p-2">
+											<a href="" x-text="item" class="font-medium text-sm hover:text-blue-600"></a>
+										  </li>
+										</template>
+									</ul>
+								  </div>
+								</div>
+								<!-- === প্রযুক্তি === -->
+								<div>
+								  <div @click="open != 'প্রযুক্তি' ? open = 'প্রযুক্তি' : open = false" class="cursor-pointer flex items-center justify-between border-b mb-3">
+									<span class="font-semibold text-md">প্রযুক্তি</span>
+									<i class="fas fa-angle-down duration-300" :class="open == 'প্রযুক্তি' ? 'transform rotate-180 text-blue-600' : ''"></i>
+								  </div>
+								  <!-- === accordion contant === -->
+								  <div x-show="open == 'প্রযুক্তি'" class="p-2" x-collapse>
+									<ul class="" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+										<template x-for="item in modal_manu">
+										  <li class="border-b last:border-0 p-2">
+											<a href="" x-text="item" class="font-medium text-sm hover:text-blue-600"></a>
+										  </li>
+										</template>
+									</ul>
+								  </div>
+								</div>
+								<!-- === শিক্ষা === -->
+								<div>
+								  <div @click="open != 'শিক্ষা' ? open = 'শিক্ষা' : open = false" class="cursor-pointer flex items-center justify-between border-b mb-3">
+									<span class="font-semibold text-md">শিক্ষা</span>
+									<i class="fas fa-angle-down duration-300" :class="open == 'শিক্ষা' ? 'transform rotate-180 text-blue-600' : ''"></i>
+								  </div>
+								  <!-- === accordion contant === -->
+								  <div x-show="open == 'শিক্ষা'" class="p-2" x-collapse>
+									<ul class="" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+										<template x-for="item in modal_manu">
+										  <li class="border-b last:border-0 p-2">
+											<a href="" x-text="item" class="font-medium text-sm hover:text-blue-600"></a>
+										  </li>
+										</template>
+									</ul>
+								  </div>
+								</div>
+								<!-- === ধর্ম === -->
+								<div>
+								  <div @click="open != 'ধর্ম' ? open = 'ধর্ম' : open = false" class="cursor-pointer flex items-center justify-between border-b mb-3">
+									<span class="font-semibold text-md">ধর্ম</span>
+									<i class="fas fa-angle-down duration-300" :class="open == 'ধর্ম' ? 'transform rotate-180 text-blue-600' : ''"></i>
+								  </div>
+								  <!-- === accordion contant === -->
+								  <div x-show="open == 'ধর্ম'" class="p-2" x-collapse>
+									<ul class="" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+										<template x-for="item in modal_manu">
+										  <li class="border-b last:border-0 p-2">
+											<a href="" x-text="item" class="font-medium text-sm hover:text-blue-600"></a>
+										  </li>
+										</template>
+									</ul>
+								  </div>
+								</div>
+								<!-- === অন্য আলো === -->
+								<div>
+								  <div @click="open != 'অন্য_আলো' ? open = 'অন্য_আলো' : open = false" class="cursor-pointer flex items-center justify-between border-b mb-3">
+									<span class="font-semibold text-md">অন্য আলো</span>
+									<i class="fas fa-angle-down duration-300" :class="open == 'অন্য_আলো' ? 'transform rotate-180 text-blue-600' : ''"></i>
+								  </div>
+								  <!-- === accordion contant === -->
+								  <div x-show="open == 'অন্য_আলো'" class="p-2" x-collapse>
+									<ul class="" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+										<template x-for="item in modal_manu">
+										  <li class="border-b last:border-0 p-2">
+											<a href="" x-text="item" class="font-medium text-sm hover:text-blue-600"></a>
+										  </li>
+										</template>
+									</ul>
+								  </div>
+								</div>
+							  </div>
+							<!-- === === -->
+							<div class="flex items-center pt-6 pb-6">
+							  <a href="#" class="hover:text-blue-600 flex items-center">
+								  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+									  <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"></path>
+								  </svg>
+								  <span class="font-medium text-sm ms-1">ই-পেপার</span>
+							   </a>
+						      <a href="#" class="px-6 hover:text-blue-600 flex items-center">
+								  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+									  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"></path>
+								  </svg>
+								  <span class="font-medium text-sm ms-1">Eng</span>
+							   </a>			
+							</div>
+							<!-- === social media link === -->
+							<p class="mb-2.5 text-sm">অনুসরণ করুন</p> 
+							<ul class="flex space-x-2.5 items-center">
+							  <!-- === facebook === -->
+							  <li>
+								<a href="#" class="border flex items-center justify-center rounded-full text-blue-600 h-[36px] w-[36px] hover:bg-blue-600 group">
+								  <i class="fa-brands fa-facebook-f group-hover:text-white"></i>
+								</a>
+							  </li>	
+							  <!-- === twitter === -->
+							  <li>
+								<a href="#" class="border flex items-center justify-center rounded-full text-blue-600 h-[36px] w-[36px] hover:bg-black group">
+								  <i class="fa-brands fa-x-twitter group-hover:text-white text-black"></i>
+								</a>
+							  </li>	
+							  <!-- === twitter === -->
+							  <li>
+								<a href="#" class="border flex items-center justify-center rounded-full text-blue-600 h-[36px] w-[36px] hover:bg-black group">
+								  <i class="fa-brands fa-instagram group-hover:text-white text-[#FCAF45]"></i>
+								</a>
+							  </li>
+							  <!-- === youtube === -->
+							  <li>
+								<a href="#" class="border flex items-center justify-center rounded-full text-blue-600 h-[36px] w-[36px] hover:bg-red-600 group">
+								  <i class="fa-brands fa-youtube group-hover:text-white text-red-600"></i>
+								</a>
+							  </li>
+							  <!-- === google === -->
+							  <li>
+								<a href="#" class="border flex items-center justify-center rounded-full text-blue-600 h-[36px] w-[36px] hover:bg-blue-600 group">
+								  <i class="fa-brands fa-google group-hover:text-white"></i> 
+								</a>
+							  </li>
+							</ul>	
+							<hr class="border border-gray-400 border-b-[0.9px] my-4">
+							<!-- === phone apps === -->
+							<p class="mt-4 mb-2.5 text-sm">মোবাইল অ্যাপস ডাউনলোড করুন</p>
+							<div class="flex space-x-4">
+							  <a href="#" class="border border-red px-20 py-2 rounded text-lg flex items-center justify-center text-gray-500 hover:border-blue-600 hover:bg-blue-50 group relative">
+								<img src="images/playstore-b.png" class="group-hover:opacity-0 transition duration-300 absolute inset-0 m-auto w-[100px] h-auto">
+								<img src="images/playstore-c.png" class="opacity-0 group-hover:opacity-100 transition duration-300 absolute inset-0 m-auto w-[100px] h-auto">
+							  </a>
+
+							  <a href="#" class="border border-red px-4 py-2 rounded text-lg flex items-center justify-center text-gray-500 hover:border-blue-600 hover:bg-blue-50 group relative">
+								<img src="images/appstore-c.png" class="w-[100px] h-auto">
+							  </a>
+							</div>
+                         </div>
+                       </div>
+                   </div>
+                </div>
+           </div>
+        </nav>
+		 <!-- === (xxl to lg device) manu == -->
+		 <div class="lg:block hidden sticky top-0 z-20 lg:px-8 border-b-2">
+			<!-- === === -->
+			<div class="flex items-center">
+			  <!-- === category === -->	
+			  <ul class="px-4 flex items-center gap-x-6">
+			    <li>
+				  <a href="#" class="font-semibold hover:text-blue-600 text-[14px]">সর্বশেষ</a>	
+				</li>
+				<li>
+				  <a href="#" class="font-semibold hover:text-blue-600 text-[14px]">রাজনীতি</a>	
+				</li>
+				<li>
+				  <a href="#" class="font-semibold hover:text-blue-600 text-[14px]">বাংলাদেশ</a>	
+				</li>
+				<li>
+				  <a href="#" class="font-semibold hover:text-blue-600 text-[14px]">অপরাধ</a>	
+				</li>
+				<li>
+				  <a href="#" class="font-semibold hover:text-blue-600 text-[14px]">বিশ্ব</a>	
+				</li>
+				<li>
+				  <a href="#" class="font-semibold hover:text-blue-600 text-[14px]">বাণিজ্য</a>	
+				</li>
+				<li>
+				  <a href="#" class="font-semibold hover:text-blue-600 text-[14px]">মতামত</a>	
+				</li>
+				<li>
+				  <a href="#" class="font-semibold hover:text-blue-600 text-[14px]">খেলা</a>	
+				</li>
+			  </ul>
+			  <!-- === === -->
+			  <div class="ml-auto flex">
+				<!-- === search === -->
+				<a href="#" class="border-x-[1px] p-4 hover:text-blue-600 flex items-center">
+				  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-500">
+					  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+				  </svg>
+				  <span class="font-medium text-sm ms-1">খুঁজুন</span>
+				</a>
+				<!-- === ই-পেপার  === -->
+				<a href="#" class="p-4 hover:text-blue-600 flex items-center">
+				  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+					  <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
+				  </svg>
+				  <span class="font-medium text-sm ms-1">ই-পেপার</span>
+				</a>
+				<!-- === language === -->
+				<a href="#" class="border-x-[1px] p-4 hover:text-blue-600 flex items-center bg-[#fbe9e7]">
+				  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+					  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+				  </svg>
+				  <span class="font-medium text-sm ms-1">Eng</span>
+				</a>
+				<!-- === Login  === -->
+				<a href="#" class="p-4 hover:text-blue-600 flex items-center">
+				  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+					  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+				  </svg>
+				  <span class="font-medium text-sm ms-1">Login</span>
+				</a>
+				<!-- === categories modal === -->
+				<a x-data="{open : false}" class="border-x-[1px] p-4 hover:text-blue-600 flex items-center">
+				  <svg @click="open =! open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer">
+					  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+				  </svg>
+				  <template x-teleport="body">
+					<div x-show="open" class="bg-black inset-0 fixed z-50 flex justify-center items-center bg-opacity-25">
+					  <!-- === dialog === -->
+					  <div x-show="open" x-transition.duration.500ms="" @click.outside="open = false" class="bg-white w-full h-[full]">
+					    <!-- === modal title === -->
+						<div class="flex items-center justify-between px-6">
+						  <img src="images/logo.png" class="h-[48px] w-[200px]">
+						  <svg @click="open = false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+							  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+						  </svg>
+						</div>
+						<hr class="border-black border-b-2 my-4">
+						<div class="overflow-y-scroll h-[550px]">
+						  <div class="container mx-auto mt-12">
+						    <div class="grid grid-cols-12 gap-12">
+							  <div class="col-span-12 lg:col-span-8">
+								<ul class="flex" x-data="{ modal_manu: ['প্রচ্ছদ', 'সর্বশেষ', 'বিশেষ সংবাদ','রাজনীতি','একটু থামুন','একটু থামুন','ছবি','ভিডিও'] }">
+									<template x-for="item in modal_manu">
+									  <li>
+										<a href="" x-text="item" class="font-bold text-base ms-4"></a>
+									  </li>
+									</template>
+								</ul>
+								<hr class="border-b-[1px] my-2.5"/>
+								<table class="mt-6">
+								   <thead>
+								      <tr class="border-b">
+									    <th class="p-2.5 font-semibold text-start hover:text-blue-600"><a href="#">বাংলাদেশ</a></th>
+										  <th class="p-2.5">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" class="size-4 text-red-600">
+												  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+												</svg>
+										  </th>
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600 hover:text-blue-600">রাজধানী</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600 hover:text-blue-600">জেলা</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600 hover:text-blue-600">করোনাভাইরাস</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600 hover:text-blue-600">অপরাধ</a>
+										  </td> 	
+									  </tr>
+									  <tr class="border-b">
+									    <th class="p-2.5 font-semibold text-start">বাংলাদেশ</th>
+										  <th class="p-2.5">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" class="size-4 text-red-600">
+												  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+												</svg>
+										  </th>
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">রাজধানী</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">জেলা</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">করোনাভাইরাস</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">অপরাধ</a>
+										  </td> 	
+									  </tr>
+									  <tr class="border-b">
+									    <th class="p-2.5 font-semibold text-start">বিশ্ব</th>
+										  <th class="p-2.5">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" class="size-4 text-red-600">
+												  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+												</svg>
+										  </th>
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">মার্কিন নির্বাচন</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">জেলা</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">করোনাভাইরাস</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">অপরাধ</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">লাতিন আমেরিকা</a>
+										  </td>	
+									  </tr>
+									  <tr class="border-b">
+									    <th class="p-2.5 font-semibold text-start">আরও</th>
+										  <th class="p-2.5">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" class="size-4 text-red-600">
+												  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+												</svg>
+										  </th>
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">শেয়ারবাজার</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">ব্যাংক</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">শিল্প</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">অপরাধ</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">বিশ্লেষণ</a>
+										  </td> 
+										  <td class="p-2.5">
+											<a href="#" class="text-sm font-normal hover:blue-600">লাতিন আমেরিকা</a>
+										  </td>	
+									  </tr>
+								   </thead>	
+								</table>
+							  </div>
+							  <div class="col-span-12 lg:col-span-3">
+								<!-- === login and registration === -->
+								<div class="flex space-x-6">
+								  <a href="#" class="border border-red px-6 py-2 rounded text-lg flex item-center justify-center text-gray-500 hover:border-blue-600 hover:bg-blue-50 group">
+								    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 me-2 group-hover:text-blue-600">
+									  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+									</svg>
+								    <span class="font-medium group-hover:text-blue-600">Login</span>
+								  </a>
+								  <a href="#" class="border border-red px-6 py-2 rounded text-lg flex item-center justify-center text-gray-500 hover:border-blue-600 hover:bg-blue-50 group">
+								    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 me-2 text-gray-500">
+									   <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
+									</svg>
+								    <span class="font-medium group-hover:text-blue-600">খুঁজুন</span>
+								  </a>
+								</div>
+								<hr class="border border-gray-400 border-b-[0.9px] my-4">
+								<!-- === social media link === -->
+								<p class="mb-2.5 text-sm">অনুসরণ করুন</p>
+								<ul class="flex space-x-2.5 items-center">
+								  <!-- === facebook === -->
+								  <li>
+								    <a href="#" class="border flex items-center justify-center rounded-full text-blue-600 h-[36px] w-[36px] hover:bg-blue-600 group">
+									  <i class="fa-brands fa-facebook-f group-hover:text-white"></i>
+									</a>
+								  </li>	
+								  <!-- === twitter === -->
+								  <li>
+								    <a href="#" class="border flex items-center justify-center rounded-full text-blue-600 h-[36px] w-[36px] hover:bg-black group">
+									  <i class="fa-brands fa-x-twitter group-hover:text-white text-black"></i>
+									</a>
+								  </li>	
+								  <!-- === twitter === -->
+								  <li>
+								    <a href="#" class="border flex items-center justify-center rounded-full text-blue-600 h-[36px] w-[36px] hover:bg-black group">
+									  <i class="fa-brands fa-instagram group-hover:text-white text-[#FCAF45]"></i>
+									</a>
+								  </li>
+								  <!-- === youtube === -->
+								  <li>
+								    <a href="#" class="border flex items-center justify-center rounded-full text-blue-600 h-[36px] w-[36px] hover:bg-red-600 group">
+									  <i class="fa-brands fa-youtube group-hover:text-white text-red-600"></i>
+									</a>
+								  </li>
+								  <!-- === google === -->
+								  <li>
+								    <a href="#" class="border flex items-center justify-center rounded-full text-blue-600 h-[36px] w-[36px] hover:bg-blue-600 group">
+									  <i class="fa-brands fa-google group-hover:text-white"></i> 
+									</a>
+								  </li>
+								</ul>
+								<hr class="border border-gray-400 border-b-[0.9px] my-4">
+								<!-- === phone apps === -->
+								<p class="mt-4 mb-2.5 text-sm">মোবাইল অ্যাপস ডাউনলোড করুন</p>
+								<div class="flex space-x-4">
+								  <a href="#" class="border border-red px-20 py-2 rounded text-lg flex items-center justify-center text-gray-500 hover:border-blue-600 hover:bg-blue-50 group relative">
+								    <img src="images/playstore-b.png" class="group-hover:opacity-0 transition duration-300 absolute inset-0 m-auto w-[100px] h-auto">
+								    <img src="images/playstore-c.png" class="opacity-0 group-hover:opacity-100 transition duration-300 absolute inset-0 m-auto w-[100px] h-auto">
+								  </a>
+
+								  <a href="#" class="border border-red px-4 py-2 rounded text-lg flex items-center justify-center text-gray-500 hover:border-blue-600 hover:bg-blue-50 group relative">
+								    <img src="images/appstore-c.png" class="w-[100px] h-auto">
+								  </a>
+								</div>
+								<hr class="border border-gray-400 border-b-[0.9px] my-4">
+								<!-- === প্রথম আলোর অন্যান্য উদ্যোগ === -->
+								<p class="mt-4 mb-2.5 text-sm">প্রথম আলোর অন্যান্য উদ্যোগ</p>
+								<div class="flex space-x-4">
+								  <a href="#" class="border border-red px-20 py-6 rounded text-lg flex items-center justify-center text-gray-500 hover:border-blue-600 hover:bg-blue-50 group relative">
+								    <img src="images/epaper-black.png" class="group-hover:opacity-0 transition duration-300 absolute inset-0 m-auto w-[100px] h-auto">
+								    <img src="images/epaper-colored.png" class="opacity-0 group-hover:opacity-100 transition duration-300 absolute inset-0 m-auto w-[100px] h-auto">
+								  </a>
+
+								  <a href="#" class="border border-red px-20 py-6 rounded text-lg flex items-center justify-center text-gray-500 hover:border-blue-600 hover:bg-blue-50 group relative">
+								    <img src="images/trust-black.png" class="group-hover:opacity-0 transition duration-300 absolute inset-0 m-auto w-[100px] h-auto">
+								    <img src="images/trust-colored.png" class="opacity-0 group-hover:opacity-100 transition duration-300 absolute inset-0 m-auto w-[100px] h-auto">
+								  </a>
+								</div>
+								<div class="flex space-x-4 mt-2.5">
+								  <a href="#" class="border border-red px-20 py-6 rounded text-lg flex items-center justify-center text-gray-500 hover:border-blue-600 hover:bg-blue-50 group relative">
+								    <img src="images/nagorik-songbad-black.png" class="group-hover:opacity-0 transition duration-300 absolute inset-0 m-auto w-[100px] h-auto">
+								    <img src="images/nagorik-songbad-colored.png" class="opacity-0 group-hover:opacity-100 transition duration-300 absolute inset-0 m-auto w-[100px] h-auto">
+								  </a>
+
+								  <a href="#" class="border border-red px-20 py-6 rounded text-lg flex items-center justify-center text-gray-500 hover:border-blue-600 hover:bg-blue-50 group relative">
+								    <img src="images/chironton71-black.png" class="group-hover:opacity-0 transition duration-300 absolute inset-0 m-auto w-[100px] h-auto">
+								    <img src="images/chironton71-colored.png" class="opacity-0 group-hover:opacity-100 transition duration-300 absolute inset-0 m-auto w-[100px] h-auto">
+								  </a>
+								</div>
+								<div class="flex space-x-4 mt-2.5">
+								  <a href="#" class="border border-red px-20 py-6 rounded text-lg flex items-center justify-center text-gray-500 hover:border-blue-600 hover:bg-blue-50 group relative">
+								    <img src="images/kishoralo-black.png" class="group-hover:opacity-0 transition duration-300 absolute inset-0 m-auto w-[70px] h-auto">
+								    <img src="images/bondhushava-colored.png" class="opacity-0 group-hover:opacity-100 transition duration-300 absolute inset-0 m-auto w-[70px] h-auto">
+								  </a>
+
+								  <a href="#" class="border border-red px-20 py-6 rounded text-lg flex items-center justify-center text-gray-500 hover:border-blue-600 hover:bg-blue-50 group relative">
+								    <img src="images/bigganchinta-black.png" class="group-hover:opacity-0 transition duration-300 absolute inset-0 m-auto w-[70px] h-auto">
+								    <img src="images/prothoma-colored.png" class="opacity-0 group-hover:opacity-100 transition duration-300 absolute inset-0 m-auto w-[70px] h-auto">
+								  </a>
+								</div>
+								<hr class="border border-gray-400 border-b-[0.9px] my-4">
+								<ul class="mb-12">
+								  <li class="list-disc">
+								    <a href="#" class="text-xs hover:text-blue-600 text-gray-600">প্রথম আলো</a>
+								  </li>
+								  <li class="list-disc">
+								    <a href="#" class="text-xs hover:text-blue-600 text-gray-600">বিজ্ঞাপন</a>
+								  </li>
+								  <li class="list-disc">
+								    <a href="#" class="text-xs hover:text-blue-600 text-gray-600">সার্কুলেশন</a>
+								  </li>
+								  <li class="list-disc">
+								    <a href="#" class="text-xs hover:text-blue-600 text-gray-600">শর্তাবলি ও নীতিমালা</a>
+								  </li>
+								  <li class="list-disc">
+								    <a href="#" class="text-xs hover:text-blue-600 text-gray-600">গোপনীয়তা নীতি</a>
+								  </li>
+								  <li class="list-disc">
+								    <a href="#" class="text-xs hover:text-blue-600 text-gray-600">যোগাযোগ</a>
+								  </li>
+								</ul>
+							  </div>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </template>	
+				</a>
+			  </div>
+			</div>
+		 </div>
+        <!-- === main === --> 
+        <main>
+            <!-- === === -->
+            <section class="h-screen bg-red-400">
+
+            </section> 
+            <section class="h-screen bg-green-400">
+
+            </section> 
+        </main> 
+        <!-- === footer === --> 
+        <footer>
+
+        </footer> 
+    </body>
+</html>
